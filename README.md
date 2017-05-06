@@ -45,3 +45,11 @@ Following could be different solution approaches for using different AWS service
 * AWS ElasticBeanstalk
 * AWS EC2
 
+## Continuous Delivery of Containerized ETL Jobs, Reporting Apps on AWS
+
+Following is done to continuously deliver reporting app and containerized ETL jobs to AWS:
+
+* Configure BitBucket Webhook for integration with Jenkins
+* Configure Jenkins to integrate with BitBucket
+* Configure Jenkins to build, test the app, build docker images, push docker images to AWS ECR/Dockerhub appropriately, and release/deploy app to AWS services (ECS/EC2)
+
