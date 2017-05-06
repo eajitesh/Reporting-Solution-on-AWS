@@ -10,6 +10,7 @@ Taking above into consideration, following represents key building blocks of tec
 * Containerized ETL jobs in order to make best use of cloud services 
 * Schedule containerized ETL jobs using cloud services
 * Reporting application that exposes reporting data through REST APIs
+* AWS analytics reporting service such as ElasticSearch/Kibana 
 
 ## Spring Batch/Spring Data and Docker for Containerized ETL Jobs
 
