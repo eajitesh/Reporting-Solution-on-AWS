@@ -11,6 +11,15 @@ Taking above into consideration, following represents key building blocks of tec
 * Schedule containerized ETL jobs using cloud services
 * Reporting application that exposes reporting data through REST APIs
 
+## Spring Batch/Spring Data and Docker for Containerized ETL Jobs
+
+Following technologies are used to create containerized ETL jobs:
+
+* Spring Batch for Batch jobs
+* Spring Data for interacting with data sources such as MongoDB, ElasticSearch (ES), MySQL etc.
+* Docker containers for containerizing ETL jobs
+
+
 ## AWS Services for Reporting Database
 
 Following could be different AWS services which can be used for storing reporting data:
@@ -19,14 +28,6 @@ Following could be different AWS services which can be used for storing reportin
 * AWS ElasticSearch (ES)
 
 We shall take into consideration both of the above AWS storage service for our reporting database.
-
-## Spring Batch/Data and Docker for Containerized ETL Jobs
-
-Following technologies are used to create containerized ETL jobs:
-
-* Spring Batch for Batch jobs
-* Spring Data for interacting with data sources such as MongoDB, ElasticSearch (ES), MySQL etc.
-* Docker containers for containerizing ETL jobs
 
 ## AWS Services as Reporting Engine
 
