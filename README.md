@@ -7,7 +7,11 @@ The reporting solution/framework architecture is based on [ReportingData](https:
 Taking above into consideration, following represents key building blocks of technology architecture of reporting solution/framework:
 
 * ETL jobs to extract-transform-load data from different data sources to reporting database
+* Containerized ETL jobs in order to make best use of cloud services 
+* Schedule containerized ETL jobs using cloud services
 * Reporting application that exposes reporting data through REST APIs
+
+## AWS Services for Reporting Database
 
 Following could be different AWS services which can be used for storing reporting data:
 
@@ -16,8 +20,18 @@ Following could be different AWS services which can be used for storing reportin
 
 We shall take into consideration both of the above AWS storage service for our reporting database.
 
+## AWS Services as Reporting Engine
+
 Following could be some of the different solution approaches which can be used to create reporting solution/framework using different AWS services: 
 
 * AWS Batch 
 * AWS ECS
 * AWS EC2
+
+## AWS Services for Reporting Application
+
+Following could be different solution approaches for using different AWS services for reporting application:
+
+* AWS ElasticBeanstalk
+* AWS EC2
+
