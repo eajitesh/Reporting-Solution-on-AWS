@@ -29,7 +29,7 @@ Following could be different AWS services which can be used for storing reportin
 
 We shall take into consideration both of the above AWS storage service for our reporting database.
 
-## AWS Services as Reporting Engine
+## AWS Services for Reporting Engine
 
 Following could be some of the different solution approaches which can be used to create reporting solution/framework using different AWS services: 
 
