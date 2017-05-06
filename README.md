@@ -45,7 +45,7 @@ Following could be different solution approaches for using different AWS service
 * AWS ElasticBeanstalk
 * AWS EC2
 
-## Continuous Delivery of Containerized ETL Jobs, Reporting Apps on AWS
+## Continuous Delivery of Reporting Apps to AWS
 
 Following is done to continuously deliver reporting app and containerized ETL jobs to AWS:
 
