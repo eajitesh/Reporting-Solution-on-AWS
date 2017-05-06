@@ -16,7 +16,7 @@ Following represents key building blocks of **technology architecture** which is
 
 * Spring Batch/Spring Data and Docker for Containerized ETL Jobs
 * AWS services for reporting database
-* AWS services for reporting engine
+* AWS services for scheduling/running reporting ETL jobs
 * AWS services for reporting application
 * Continuous delivery of reporting apps to AWS
 
@@ -39,12 +39,12 @@ Following could be different AWS services which can be used for storing reportin
 
 We shall take into consideration both of the above AWS storage service for our reporting database.
 
-## AWS Services for Reporting Engine
+## AWS Services for Scheduling/Running Reporting ETL Jobs
 
 Following could be some of the different solution approaches which can be used to create reporting solution/framework using different AWS services: 
 
-* AWS Batch 
-* AWS ECS
+* AWS Batch/AWS Lambda 
+* AWS ECS/AWS Lambda
 * AWS EC2
 
 ## AWS Services for Reporting Application
