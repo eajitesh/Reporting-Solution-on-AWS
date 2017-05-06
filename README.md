@@ -35,6 +35,7 @@ Following could be different AWS services which can be used for storing reportin
 
 * AWS RDS with databases such as MYSQL
 * AWS ElasticSearch (ES)
+* AWS Redshift
 
 We shall take into consideration both of the above AWS storage service for our reporting database.
 
