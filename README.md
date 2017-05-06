@@ -4,13 +4,21 @@ The goal of this project is to create a custom reporting solution/framework usin
 
 The reporting solution/framework architecture is based on [ReportingDatabase](https://martinfowler.com/bliki/ReportingDatabase.html) design pattern recommended by [Martin Fowler](https://martinfowler.com/). As per the recommended design pattern, given the fact that transactional/operational database and reporting database fulfill different data requirements/needs, it would be good to have different databases for managing transactions and reporting data. 
 
-Taking above into consideration, following represents key building blocks of technology architecture of reporting solution/framework:
+Taking above into consideration, following represents key building blocks of **application architecture** of reporting solution/framework:
 
 * ETL jobs to extract-transform-load data from different data sources to reporting database
 * Containerized ETL jobs in order to make best use of cloud services 
 * Schedule containerized ETL jobs using cloud services
 * Reporting application that exposes reporting data through REST APIs
-* AWS analytics reporting service such as ElasticSearch/Kibana 
+* Out-of-the-box analytics service such as ElasticSearch/Kibana 
+
+Following represents key building blocks of **technology architecture** which is dealt in detail in later sections:
+
+* Spring Batch/Spring Data and Docker for Containerized ETL Jobs
+* AWS services for reporting database
+* AWS services for reporting engine
+* AWS services for reporting application
+* Continuous delivery of reporting apps to AWS
 
 ## Spring Batch/Spring Data and Docker for Containerized ETL Jobs
 
