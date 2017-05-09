@@ -37,6 +37,8 @@ Following could be different AWS services which can be used for storing reportin
 * AWS ElasticSearch (ES)
 * AWS Redshift
 
+Details can be found on this page: [AWS Services for Reporting Database](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_db.md)
+
 We shall take into consideration both of the above AWS storage service for our reporting database.
 
 ## AWS Services for Scheduling/Running Reporting ETL Jobs
