@@ -8,7 +8,7 @@ Following is done to continuously deliver reporting app and containerized ETL jo
 * CI/CD of containerized ETL jobs on EC2
 
 
-h1. Configure Push-based Trigger from BitBucket to Jenkins
+## Configure Push-based Trigger from BitBucket to Jenkins
 
 * *Add the inbound rule on CI box on AWS* for following IP: 104.192.143.192/28. This is BitBucket cloud IP outbound address (for hooks like POST) when inbound IP address for BitBucket is 104.192.143.1. I figured this IP (104.192.143.1) by pinging bitbucket.org. The outbound IP address was found from this page: https://confluence.atlassian.com/bitbucket/what-are-the-bitbucket-cloud-ip-addresses-i-should-use-to-configure-my-corporate-firewall-343343385.html
 * *Add following URL while creating WebHook in BitBucket*:  http://ci.fieldrepo.com:8080/bitbucket-hook/ . URL takes the format of *http://<repository_url>/bitbucket-hook/*
@@ -17,12 +17,12 @@ h1. Configure Push-based Trigger from BitBucket to Jenkins
 ** Credentials: Create a credential by providing bitbucket username and password
 * *Setup Build Triggers*:  Check the option "Build when a change is pushed to BitBucket"
 
-h1. Configure Jenkins to integrate with BitBucket
+## Configure Jenkins to integrate with BitBucket
 
 Following needs to be setup/configured within Jenkins in order to integrate Jenkins with BitBucket:
  
 
-h1. CI/CD of Reporting APIs on AWS EB
+## CI/CD of Reporting APIs on AWS EB
 
 The Jenkins job can be found at [http://ci.fieldrepo.com:8080/job/reporting_apis/|http://ci.fieldrepo.com:8080/job/reporting_apis/]. Following are different aspects of achieving continuous integration/continuous deployment (Jenkins as CI/CD server) of Reporting APIs to AWS Elastic Beanstalk:
 
@@ -32,7 +32,7 @@ The Jenkins job can be found at [http://ci.fieldrepo.com:8080/job/reporting_apis
 ** Add  NOPASSWD option to allow for promptless execution of sudo command: "%jenkins ALL=(ALL) NOPASSWD: ALL" 
 * *Configure Post Steps* to execute docker commands to build the image, push the image to image repository, initialize elasticbeanstalk, deploy the container.
 
-h2. Configure Post Steps to Execute Docker commands
+## Configure Post Steps to Execute Docker commands
  
 Following is achieved as part of configuring post-steps:
 
@@ -43,7 +43,7 @@ Following is achieved as part of configuring post-steps:
 
 Following is the code that would go as a shell script in "Post Steps - Execute Shell". 
 
-{code:java}
+```
 # Remove existing image
 sudo docker rmi ajitesh/srapis:latest
 
@@ -64,13 +64,13 @@ cd /var/lib/jenkins/workspace/reporting_apis/aws-eb
 
 # Deploy the container
 eb deploy
-{code}
+```
 
-h3. Initialize EB - Promptless "EB INIT" execution
+### Initialize EB - Promptless "EB INIT" execution
 
 Following is the code for ebinit.sh which facilitates the promptless execution of "eb init" command. Do note the numeric value used for specifying default region and application to use. This value comes from executing the "eb init" command on command prompt and noting down the appropriate number prior to setting in the script. There can be better ways to achieve this. 
 
-{code:java}
+```
 #!/usr/bin/expect -f
 set timeout -1
 spawn $env(SHELL)
@@ -82,15 +82,15 @@ expect "Select an application to use"
 send -- "2\r"
 send -- "exit\r"
 expect eof
-{code}
+```
 
 h4. Install Expect tool
 Note that one may have to install expect on the Jenkins server for above to work. Following code can be used to install Expect:
-{code:java}
+```
 apt install expect
-{code}
+```
 
-h1. CI/CD of Containerized ETL Job (MongoDB to ElasticSearch) on AWS EC2
+## CI/CD of Containerized ETL Job (MongoDB to ElasticSearch) on AWS EC2
 
 One may recall that due to lack of support of AWS ECS or AWS Batch in Mumbai region, the solution architecture was updated to use EC2 instance for running the containerized ETL job. Doing continuous delivery on EC2 for these containerized jobs would mean the removal of existing docker image and setting up of fresh image from docker image repository. 
  
@@ -101,7 +101,7 @@ The Jenkins job can be found at [http://ci.fieldrepo.com:8080/job/ETL_Mongo_Elas
 ** Add  NOPASSWD option to allow for promptless execution of sudo command: "%jenkins ALL=(ALL) NOPASSWD: ALL" 
 * *Configure Post Steps* to execute docker commands to build the image, push the image to image repository, SSH to EC2, and execute docker commands to  setup docker image.
 
-h2. Configure Post Steps to Execute Docker commands
+### Configure Post Steps to Execute Docker commands
  
 Following is achieved as part of configuring post-steps:
 
@@ -111,7 +111,7 @@ Following is achieved as part of configuring post-steps:
 * Execute commands (on remote EC2 instance) such as remove the existing docker image and setup new docker image.
 
 Following is the code that would go as a shell script in "Post Steps - Execute Shell". 
-{code:java}
+```
 # Remove existing image
 sudo docker rmi ajitesh/etlmongo2es:latest
 
@@ -126,12 +126,12 @@ sudo docker push ajitesh/etlmongo2es:latest
 
 # Re-install the docker image on EC2 instance
 cat /var/lib/jenkins/scripts/setup_etlmongo2es.sh | ssh  -i /pems/pem_35.154.143.91.pem -tt ubuntu@ec2-35-154-143-91.ap-south-1.compute.amazonaws.com
-{code}
+```
 
-h3. Code - Setup_etlmongo2es.sh
-{code:java}
+#### Code - Setup_etlmongo2es.sh
+```
 docker rmi -f ajitesh/etlmongo2es
 docker pull ajitesh/etlmongo2es:latest
 exit
 exit
-{code}
+```
