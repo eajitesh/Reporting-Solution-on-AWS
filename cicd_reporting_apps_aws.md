@@ -1,4 +1,4 @@
-# Continuous Delivery of Reporting Apps to AWS
+# Continuous Delivery of Reporting Apps to AWS 
 
 Following is done to continuously deliver reporting app and containerized ETL jobs to AWS:
 
@@ -10,29 +10,29 @@ Following is done to continuously deliver reporting app and containerized ETL jo
 
 ## Configure Push-based Trigger from BitBucket to Jenkins
 
-* *Add the inbound rule on CI box on AWS* for following IP: 104.192.143.192/28. This is BitBucket cloud IP outbound address (for hooks like POST) when inbound IP address for BitBucket is 104.192.143.1. I figured this IP (104.192.143.1) by pinging bitbucket.org. The outbound IP address was found from this page: https://confluence.atlassian.com/bitbucket/what-are-the-bitbucket-cloud-ip-addresses-i-should-use-to-configure-my-corporate-firewall-343343385.html
-* *Add following URL while creating WebHook in BitBucket*:  http://ci.fieldrepo.com:8080/bitbucket-hook/ . URL takes the format of *http://<repository_url>/bitbucket-hook/*
-* *Configure Git as Source code management tool within Jenkins*: Following is a sample of input parameter:
+* **Add the inbound rule on CI box on AWS** for following IP: 104.192.143.192/28. This is BitBucket cloud IP outbound address (for hooks like POST) when inbound IP address for BitBucket is 104.192.143.1. I figured this IP (104.192.143.1) by pinging bitbucket.org. The outbound IP address was found from this page: https://confluence.atlassian.com/bitbucket/what-are-the-bitbucket-cloud-ip-addresses-i-should-use-to-configure-my-corporate-firewall-343343385.html
+* **Add following URL while creating WebHook in BitBucket**:  http://ci.fieldrepo.com:8080/bitbucket-hook/ . URL takes the format of *http://<repository_url>/bitbucket-hook/*
+* **Configure Git as Source code management tool within Jenkins**: Following is a sample of input parameter:
 ** Repository_URL: https://ajitraksan@bitbucket.org/ajitraksan/smartetl_mongo_elasticsearch.git
 ** Credentials: Create a credential by providing bitbucket username and password
-* *Setup Build Triggers*:  Check the option "Build when a change is pushed to BitBucket"
+* **Setup Build Triggers**:  Check the option "Build when a change is pushed to BitBucket"
 
 ## Configure Jenkins to integrate with BitBucket
 
 Following needs to be setup/configured within Jenkins in order to integrate Jenkins with BitBucket:
  
 
-## CI/CD of Reporting APIs on AWS EB
+## CI/CD of Reporting APIs on AWS Elastic Beanstalk (EB)
 
 Following are different aspects of achieving continuous integration/continuous deployment (Jenkins as CI/CD server) of Reporting APIs to AWS Elastic Beanstalk:
 
-* *Configure push-based trigger from Bitbucket to Jenkins*: Follow the steps mentioned in above section. Note that Jenkins is setup on AWS EC2 instance. 
-* *Setup AWS EB CLI on Jenkins Server*: Setup AWS EB CLI on Jenkins server
-* *Configure Jenkins user to execute docker command*: As part of Post Steps - Execute Shell, it would be required to execute docker command. This is where one would required to do following:
+* **Configure push-based trigger from Bitbucket to Jenkins**: Follow the steps mentioned in above section. Note that Jenkins is setup on AWS EC2 instance. 
+* **Setup AWS EB CLI on Jenkins Server**: Setup AWS EB CLI on Jenkins server
+* **Configure Jenkins user to execute docker command**: As part of Post Steps - Execute Shell, it would be required to execute docker command. This is where one would required to do following:
 ** Add  NOPASSWD option to allow for promptless execution of sudo command: "%jenkins ALL=(ALL) NOPASSWD: ALL" 
-* *Configure Post Steps* to execute docker commands to build the image, push the image to image repository, initialize elasticbeanstalk, deploy the container.
+* **Configure Post Steps** to execute docker commands to build the image, push the image to image repository, initialize elasticbeanstalk, deploy the container.
 
-## Configure Post Steps to Execute Docker commands
+### Configure Post Steps to Execute Docker Commands & Shell Scripts
  
 Following is achieved as part of configuring post-steps:
 
@@ -84,7 +84,7 @@ send -- "exit\r"
 expect eof
 ```
 
-h4. Install Expect tool
+#### Install Expect tool
 Note that one may have to install expect on the Jenkins server for above to work. Following code can be used to install Expect:
 ```
 apt install expect
@@ -96,10 +96,10 @@ One may recall that due to lack of support of AWS ECS or AWS Batch in Mumbai reg
  
 Following are different aspects of achieving continuous integration/continuous deployment of containerized ETL job to AWS EC2:
 
-* *Configure push-based trigger from Bitbucket to Jenkins*: Follow the steps mentioned in above section. Note that Jenkins is setup on AWS EC2 instance. 
-* *Configure Jenkins user to execute docker command*: As part of Post Steps - Execute Shell, it would be required to execute docker command. This is where one would required to do following:
+* **Configure push-based trigger from Bitbucket to Jenkins**: Follow the steps mentioned in the first section. Note that Jenkins is setup on AWS EC2 instance. 
+* **Configure Jenkins user to execute docker command**: As part of Post Steps - Execute Shell, it would be required to execute docker command. This is where one would required to do following:
 ** Add  NOPASSWD option to allow for promptless execution of sudo command: "%jenkins ALL=(ALL) NOPASSWD: ALL" 
-* *Configure Post Steps* to execute docker commands to build the image, push the image to image repository, SSH to EC2, and execute docker commands to  setup docker image.
+* **Configure Post Steps** to execute docker commands to build the image, push the image to image repository, SSH to EC2, and execute docker commands to  setup docker image.
 
 ### Configure Post Steps to Execute Docker commands
  
