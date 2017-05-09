@@ -12,13 +12,17 @@ Taking above into consideration, following represents key building blocks of **a
 * Reporting application that exposes reporting data through REST APIs
 * Out-of-the-box analytics service such as ElasticSearch/Kibana 
 
-Following represents key building blocks of **technology architecture** which is dealt in detail in later sections:
+Following represents technology architecture of the reporting framework:
+
+![Technology Architecture - Reporting Framework](images/Reporting_Framework_using_ECS.png)
+
+Following represents key building blocks of **technology architecture**, as shown in the above diagram, which is dealt in detail in later sections:
 
 * Spring Batch/Spring Data and Docker for Containerized ETL Jobs
-* AWS services for reporting database
-* AWS services for scheduling/running reporting ETL jobs
-* AWS services for reporting application
-* Continuous delivery of reporting apps to AWS
+* AWS services for reporting database (RDS, ElasticSearch)
+* AWS services for scheduling/running reporting ETL jobs (AWS ECS)
+* AWS services for reporting application (AWS Elastic Beanstalk)
+* Continuous delivery of reporting apps to AWS (BitBucket - Jenkins)
 
 ## Spring Batch/Spring Data and Docker for Containerized ETL Jobs
 
