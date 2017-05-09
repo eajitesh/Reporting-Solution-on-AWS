@@ -37,9 +37,7 @@ Following could be different AWS services which can be used for storing reportin
 * AWS ElasticSearch (ES)
 * AWS Redshift
 
-Details can be found on this page: [AWS Services for Reporting Database](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_db.md)
-
-We shall take into consideration both of the above AWS storage service for our reporting database.
+We shall take into consideration both of the above AWS storage service for our reporting database. Details can be found on this page: [AWS Services for Reporting Database](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_db.md)
 
 ## AWS Services for Scheduling/Running Reporting ETL Jobs
 
@@ -49,12 +47,16 @@ Following could be some of the different solution approaches which can be used t
 * AWS ECS/AWS Lambda
 * AWS EC2
 
+Details can be found on this page: [AWS Services for Reporting ETL Jobs](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_schedule_etljobs.md)
+
 ## AWS Services for Reporting Application
 
 Following could be different solution approaches for using different AWS services for reporting application:
 
 * AWS ElasticBeanstalk
 * AWS EC2
+
+Details can be found on this page: [AWS Services for Reporting Apps](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_apps.md)
 
 ## Continuous Delivery of Reporting Apps to AWS
 
@@ -64,3 +66,4 @@ Following is done to continuously deliver reporting app and containerized ETL jo
 * Configure Jenkins to integrate with BitBucket
 * Configure Jenkins to build, test the app, build docker images, push docker images to AWS ECR/Dockerhub appropriately, and release/deploy app to AWS services (ECS/EC2)
 
+Details can be found on this page: [Continuous Delivery of Reporting Apps to AWS](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/cicd_reporting_apps_aws.md)
