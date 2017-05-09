@@ -24,7 +24,7 @@ Following needs to be setup/configured within Jenkins in order to integrate Jenk
 
 ## CI/CD of Reporting APIs on AWS EB
 
-The Jenkins job can be found at [http://ci.fieldrepo.com:8080/job/reporting_apis/|http://ci.fieldrepo.com:8080/job/reporting_apis/]. Following are different aspects of achieving continuous integration/continuous deployment (Jenkins as CI/CD server) of Reporting APIs to AWS Elastic Beanstalk:
+Following are different aspects of achieving continuous integration/continuous deployment (Jenkins as CI/CD server) of Reporting APIs to AWS Elastic Beanstalk:
 
 * *Configure push-based trigger from Bitbucket to Jenkins*: Follow the steps mentioned in above section. Note that Jenkins is setup on AWS EC2 instance. 
 * *Setup AWS EB CLI on Jenkins Server*: Setup AWS EB CLI on Jenkins server
@@ -94,7 +94,7 @@ apt install expect
 
 One may recall that due to lack of support of AWS ECS or AWS Batch in Mumbai region, the solution architecture was updated to use EC2 instance for running the containerized ETL job. Doing continuous delivery on EC2 for these containerized jobs would mean the removal of existing docker image and setting up of fresh image from docker image repository. 
  
-The Jenkins job can be found at [http://ci.fieldrepo.com:8080/job/ETL_Mongo_ElasticSearch/|http://ci.fieldrepo.com:8080/job/ETL_Mongo_ElasticSearch/]. Following are different aspects of achieving continuous integration/continuous deployment of containerized ETL job to AWS EC2:
+Following are different aspects of achieving continuous integration/continuous deployment of containerized ETL job to AWS EC2:
 
 * *Configure push-based trigger from Bitbucket to Jenkins*: Follow the steps mentioned in above section. Note that Jenkins is setup on AWS EC2 instance. 
 * *Configure Jenkins user to execute docker command*: As part of Post Steps - Execute Shell, it would be required to execute docker command. This is where one would required to do following:
