@@ -55,12 +55,14 @@ Details can be found on this page: [AWS Services for Reporting ETL Jobs](https:/
 
 ## Reporting Application using Springboot, AWS Services
 
-Following could be different solution approaches for using different AWS services for reporting application:
+Following is one of the solution approach for using creating and deploying reporting application on AWS:
 
-* AWS ElasticBeanstalk
-* AWS EC2
+* Using Springboot to create Reporting App
+* Deploy reporting app on one of the following:
+** AWS ElasticBeanstalk
+** AWS EC2
 
-Details can be found on this page: [AWS Services for Reporting Apps](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_apps.md)
+Details can be found on this page: [Reporting Apps using Springboot, AWS Services](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_apps.md)
 
 ## Continuous Delivery of Reporting Apps to AWS
 
