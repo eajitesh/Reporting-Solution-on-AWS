@@ -59,8 +59,8 @@ Following is one of the solution approach for using creating and deploying repor
 
 * Using Springboot to create Reporting App
 * Deploy reporting app on one of the following:
- ** AWS ElasticBeanstalk
- ** AWS EC2
+ * AWS ElasticBeanstalk
+ * AWS EC2
 
 Details can be found on this page: [Reporting Apps using Springboot, AWS Services](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_reporting_apps.md)
 
