@@ -22,3 +22,5 @@ One can simply use AWS Elastic Beanstalk (EB) to quickly deploy a web applicatio
 }
 ```
 * Deploy the app manually using AWS EB application console or using Jenkins using instructions mentioned on the following page: [Continuous Deplivery of Reporting Apps to AWS](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/cicd_reporting_apps_aws.md)
+
+One could as well use multi-container docker platform configuration of AWS EB or [AWS ECS](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html) to deploy the reporting app/APIs.
