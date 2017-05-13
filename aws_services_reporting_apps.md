@@ -1,4 +1,11 @@
-# AWS Services for Reporting Application
+# Reporting Application using SpringBoot, AWS Services
+
+Following will be illustrated on this page:
+
+* AWS Services to deploy Reporting APIs
+* Springboot for creating Reporting APIs
+
+## AWS Services for Deployment for Reporting APIs
 
 One can simply use AWS Elastic Beanstalk (EB) to quickly deploy a web application. Following approach was used to create and deploy reporting ap using AWS EB:
 
@@ -25,7 +32,7 @@ One can simply use AWS Elastic Beanstalk (EB) to quickly deploy a web applicatio
 
 One could as well use multi-container docker platform configuration of AWS EB or [AWS ECS](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html) to deploy the reporting app/APIs.
 
-## Reporting App using Springboot - Key Considerations
+## Springboot for creating Reporting APIs - Key Highlights
 
 Following are some of the key highlights to be considered when building reporting apps which interacts with AWS ElasticSearch as data storage.
 

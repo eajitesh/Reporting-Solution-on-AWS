@@ -21,7 +21,7 @@ Following represents key building blocks of **technology architecture**, as show
 * Spring Batch/Spring Data and Docker for Containerized ETL Jobs
 * AWS services for reporting database (RDS, ElasticSearch)
 * AWS services for scheduling/running reporting ETL jobs (AWS ECS)
-* AWS services for reporting application (AWS Elastic Beanstalk)
+* AWS services/Springboot for reporting application (AWS Elastic Beanstalk)
 * Continuous delivery of reporting apps to AWS (BitBucket - Jenkins)
 
 ## Spring Batch/Spring Data and Docker for Containerized ETL Jobs
@@ -53,7 +53,7 @@ Following could be some of the different solution approaches which can be used t
 
 Details can be found on this page: [AWS Services for Reporting ETL Jobs](https://github.com/eajitesh/Reporting-Solution-on-AWS/blob/master/aws_services_schedule_etljobs.md)
 
-## AWS Services for Reporting Application
+## Reporting Application using Springboot, AWS Services
 
 Following could be different solution approaches for using different AWS services for reporting application:
 
