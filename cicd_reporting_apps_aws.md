@@ -2,24 +2,31 @@
 
 Following is done to continuously deliver reporting app and containerized ETL jobs to AWS:
 
-* Configure push-based trigger from BitBucket to Jenkins
+* Configure push-based trigger from BitBucket to Jenkins hosted on EC2
 * Configure Jenkins to integrate with BitBucket
 * CI/CD of reporting APIs on AWS Elastic Beanstalk (EB)
 * CI/CD of containerized ETL jobs on EC2
 
 
-## Configure Push-based Trigger from BitBucket to Jenkins
+## Configure Push-based Trigger from BitBucket to Jenkins (on EC2)
+
+Following represents instructions on how to configure web-hook within BitBucket to achieve push-based trigger from BitBucket to Jenkins hosted on EC2.
 
 * **Add the inbound rule on CI box on AWS** for following IP: 104.192.143.192/28. This is BitBucket cloud IP outbound address (for hooks like POST) when inbound IP address for BitBucket is 104.192.143.1. I figured this IP (104.192.143.1) by pinging bitbucket.org. The outbound IP address was found from this page: https://confluence.atlassian.com/bitbucket/what-are-the-bitbucket-cloud-ip-addresses-i-should-use-to-configure-my-corporate-firewall-343343385.html
-* **Add following URL while creating WebHook in BitBucket**:  http://ci.fieldrepo.com:8080/bitbucket-hook/ . URL takes the format of *http://<repository_url>/bitbucket-hook/*
+* **Add following URL while creating WebHook in BitBucket**:  http://<jenkin-project-url>/bitbucket-hook/ . Make a note of the hardcoded "bitbucket-hook" 
 * **Configure Git as Source code management tool within Jenkins**: Following is a sample of input parameter:
-** Repository_URL: https://ajitraksan@bitbucket.org/ajitraksan/smartetl_mongo_elasticsearch.git
+** Repository_URL: https://<username>@bitbucket.org/username/<project-name.git>
 ** Credentials: Create a credential by providing bitbucket username and password
 * **Setup Build Triggers**:  Check the option "Build when a change is pushed to BitBucket"
 
 ## Configure Jenkins to integrate with BitBucket
 
 Following needs to be setup/configured within Jenkins in order to integrate Jenkins with BitBucket:
+
+* Install BitBucket plugin
+* Create a new Maven project (if working with Java project) 
+* Configure BitBucket project under Source Code Management by checking "Git" option. Provide repository URL and user credentials.
+* Configure Build Triggers by checking on "Build when a change is pushed to BitBucket..."
  
 
 ## CI/CD of Reporting APIs on AWS Elastic Beanstalk (EB)
